@@ -1,0 +1,244 @@
+/* ===========================
+   Reset و إعدادات أساسية
+   =========================== */
+:root{
+  --accent:#ff1616;
+  --header-bg: rgba(22,123,255,0.4);
+  --glass-blur: 8px;
+  --text:#ffffff;
+  --muted:#ffffff;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, "DM Sans", sans-serif;
+  background-image: url("3425112.jpg");
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center;
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding-top:78px; /* مكان الهيدر المثبت */
+  direction: rtl;
+}
+
+/* ===========================
+   الحاوية العامة
+   =========================== */
+.container{
+  width:100%;
+  max-width:1350px;
+  margin-inline:auto;
+  padding-inline:15px;
+}
+
+/* ===========================
+   الهيدر
+   =========================== */
+header{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:1000;
+  backdrop-filter: blur(var(--glass-blur));
+  background: var(--header-bg);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.top_header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 0;
+}
+
+.logo img{width:120px; display:block}
+
+/* أيقونة الهمبرغر للموبايل */
+.hamburger{
+  display:none;
+  background:transparent;
+  border:0;
+  font-size:20px;
+  color:#fff;
+}
+
+/* اليمين: البحث + أيقونات */
+.right-section{display:flex;align-items:center;gap:12px;width:100%;justify-content:flex-end}
+
+/* صندوق البحث */
+.search_box{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:rgb(255, 255, 255);
+  padding:6px;
+  border-radius:8px;
+  min-width:260px;
+  max-width:560px;
+  flex:1;
+}
+
+.search_box input{
+  flex:1;
+  border:0;
+  padding:8px;
+  background:transparent;
+  color:#000000;
+  outline:none;
+}
+
+.search_box button{
+  background:var(--accent);
+  color:#fff;
+  padding:6px 8px;
+  border-radius:6px;
+  border:0;
+  cursor:pointer;
+}
+
+/* صندوق الفئات */
+.category select{
+  background:transparent;
+  border:1px solid rgba(0, 0, 0, 0.514);
+  color:#000000;
+  padding:6px 8px;
+  border-radius:6px;
+  outline:none;
+}
+
+/* أيقونات الهيدر */
+.header_icons{display:flex;align-items:center;gap:10px}
+.icon{display:flex;align-items:center;gap:6px;color:#fff;cursor:pointer;position:relative}
+.icon i{font-size:20px}
+.count{position:absolute;top:-8px;left:-8px;background:var(--accent);color:#fff;padding:4px 7px;border-radius:20px;font-size:12px}
+
+/* ===========================
+   المحتوى الرئيسي
+   =========================== */
+.main_content{padding:18px 0 60px}
+
+/* بانر انتقالي بسيط */
+.hero{
+  background: linear-gradient(90deg, rgba(214, 0, 0, 0.637), rgba(255,255,255,0.02));
+  padding:20px;
+  margin-bottom:18px;
+  border-radius:10px;
+  color:#fff;
+}
+
+/* شبكة المنتجات */
+.products_grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:18px;
+}
+
+/* كارت المنتج */
+.product_card{
+  background: rgba(43, 36, 36, 0.322);
+  border-radius:12px;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition: transform .18s ease, box-shadow .18s ease;
+  cursor:default;
+}
+.product_card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(224, 5, 5, 0.4);
+}
+.product_img{
+  height:160px;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:linear-gradient(180deg, rgba(121, 115, 115, 0.473), rgba(212, 15, 15, 0.06));
+}
+.product_img img{width:100%;height:100%;object-fit:cover;display:block}
+
+.product_meta{display:flex;flex-direction:column;gap:6px}
+.product_title{font-weight:700;color:#fff}
+.product_price{font-weight:700;color:var(--accent)}
+.product_actions{display:flex;gap:8px;align-items:center;margin-top:auto}
+.btn{
+  padding:8px 10px;border:0;border-radius:8px;cursor:pointer;font-weight:600;
+}
+.btn_view{background:transparent;color:#ffffff;border:1px solid rgb(248, 243, 243)}
+.btn_add{background:var(--accent);color:#ffffff}
+
+/* ===========================
+   سلايدبار العربة
+   =========================== */
+.cart_sidebar{
+  position:fixed;
+  top:78px;
+  bottom:0;
+  width:360px;
+  background:rgb(37, 36, 36);
+  right:-400px; /* مخفي افتراضياً */
+  transition: right .25s ease;
+  z-index:1200;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+}
+.cart_sidebar.open{ right:0 }
+.cart_header{display:flex;justify-content:space-between;align-items:center}
+.cart_items{flex:1;overflow:auto;margin-top:10px;padding-right:6px}
+.cart_item{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255, 255, 255, 0.986)}
+.cart_item img{width:64px;height:52px;object-fit:cover;border-radius:6px}
+.cart_footer{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.checkout_btn{display:inline-block;text-align:center;background:var(--accent);color:#fff;padding:10px;border-radius:8px;text-decoration:none}
+
+/* ===========================
+   مودال عرض المنتج
+   =========================== */
+.modal{position:fixed;inset:0;background:rgba(14, 13, 13, 0.479);display:flex;align-items:center;justify-content:center;z-index:1300}
+.modal.hidden{display:none}
+.modal_content{background:#252525;border-radius:12px;max-width:920px;width:95%;overflow:hidden}
+.modal_body{display:flex;gap:18px;padding:18px;align-items:flex-start}
+.modal_close{position:absolute;right:10px;top:10px;border:0;background:transparent;font-size:20px;cursor:pointer}
+.modal_body img{width:320px;height:320px;object-fit:cover;border-radius:8px}
+
+/* ===========================
+   فوتر
+   =========================== */
+.site_footer{padding:18px 0;color:#ffffff;margin-top:0px;text-align:center;background:transparent}
+
+/* ===========================
+   استجابة (Responsive)
+   =========================== */
+@media (max-width:1100px){
+  .products_grid{grid-template-columns:repeat(3, 1fr)}
+  .product_img{height:140px}
+}
+
+@media (max-width:800px){
+  .products_grid{grid-template-columns:repeat(2, 1fr)}
+  .search_box{min-width:200px}
+  .hamburger{display:block}
+  .logo img{width:100px}
+}
+
+@media (max-width:1023px) {
+.products_grid{grid-template-columns:repeat(1, 1fr)}
+  .cart_sidebar{width:100%;max-width:420px}
+  header .top_header{gap:8px}
+  .search_box{padding-inline:6px}
+  .search_box input{font-size:14px}
+  header{
+    padding: 12px 20px;
+
+  }
+ .products_grid{ padding: 13px 30px }
+ .search_box{padding: 1px 3px;}
+   .cart_sidebar{padding: 3px 6px;}
+}
+

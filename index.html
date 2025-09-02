@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adam Hardware store</title>
+  <link rel="icon" href="icon.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container top_header">
+      <a href="#" class="logo">
+        <img src="wed sit.png" alt="Logo">
+      </a>
+
+      <!-- أيقونة الموبايل للقائمة -->
+      <button class="hamburger" aria-label="فتح القائمة">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div class="right-section">
+        <form id="searchForm" class="search_box" role="search">
+          <input type="text" id="searchInput" placeholder="...Search for Products" />
+          <button type="submit" aria-label="بحث"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+          <div class="select_box category">
+            <select id="categorySelect" name="category" aria-label="اختر الفئة">
+              <option value="all">كل حاجه</option>
+              <option value="pc">قطع البي سي</option>
+              <option value="complete">بي سي متجمع</option>
+              <option value="hdd">HDD</option>
+              <option value="ssd">SSD</option>
+              <option value="games">Games</option>
+            </select>
+          </div>
+        </form>
+
+        <div class="header_icons">
+          <a href="#" class="icon icon-fav" title='Faviourite'>
+            <i class="fa-regular fa-heart"></i>
+            <span class="count count_favourite">0</span>
+          </a>
+
+          <a href="#" class="icon icon-cart" title='Cart'>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="count count_items_header">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main_content">
+    <!-- بانر أو مقدمة -->
+    <section class="hero">
+      <h1>اهلا بيك في مكانك</h1>
+      <p>هتلاقي اي قطعه او تجميعه اتكلمت عليها هنا / يرجي العلم بان هذا الموقع تحت رعاية Egycomputers /دوس علي عرض عشان تدخل علي صفحة المنتج</p>
+    </section>
+
+    <!-- قائمة المنتجات (سيتم توليد البطاقات عبر JS) -->
+    <section id="productsSection" class="products_grid" aria-live="polite">
+      <!-- بطاقات المنتجات تولد هنا -->
+    </section>
+
+    <!-- صفحة/لوحة العربة السريعة -->
+    <aside id="cartSidebar" class="cart_sidebar">
+      <div class="cart_header">
+        <h3>Shopping Cart</h3>
+        <button id="closeCart" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="cartItems" class="cart_items"></div>
+      <div class="cart_footer">
+        <div class="cart_total">Total:</div> <span id="cartTotal">0</span> L.E</div>
+        <a href="#" class="checkout_btn">Confirm</a>
+      </div>
+    </aside>
+
+    <!-- مودال عرض منتج -->
+    <div id="productModal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal_content">
+        <button class="modal_close" id="closeModal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal_body" id="modalBody">
+          <!-- تفاصيل المنتج يتم إدخالها هنا -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site_footer">
+    <div class="container">
+      <p>© <span id="year"></span> Adam Hardware — كل الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="main.js"></script>
+</body>
+</html>
+
