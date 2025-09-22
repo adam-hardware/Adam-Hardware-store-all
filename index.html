@@ -107,4 +107,37 @@
   <script src="main.js"></script>
 </body>
 </html>
+<script>
+// تحديد الهيدر
+const header = document.querySelector("header");
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll > lastScroll && currentScroll > 68) {
+    // لو المستخدم بينزل
+    header.style.transform = "translateY(-100%)";
+  } else {
+    // لو المستخدم بيطلع
+    header.style.transform = "translateY(0)";
+  }
+
+  lastScroll = currentScroll;
+});
+</script>
+<button class="scroll_top" id="scrollTopBtn">↑</button>
+<script>
+const scrollBtn = document.getElementById("scrollTopBtn");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    scrollBtn.classList.add("show");
+  } else {
+    scrollBtn.classList.remove("show");
+  }
+});
+scrollBtn.addEventListener("click", () => {
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+</script>
 

@@ -3,7 +3,7 @@
    =========================== */
 :root{
   --accent:#ff1616;
-  --header-bg: rgba(22,123,255,0.4);
+  
   --glass-blur: 8px;
   --text:#ffffff;
   --muted:#ffffff;
@@ -14,7 +14,7 @@ html,body{height:100%}
 body{
   margin:0;
   font-family: "Inter", system-ui, -apple-system, "DM Sans", sans-serif;
-  background-image: url("3425112.jpg");
+  background-image: url("back.jpg");
   background-size: cover;
   background-repeat:no-repeat;
   background-attachment:fixed;
@@ -22,7 +22,7 @@ body{
   color:var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  padding-top:78px; /* مكان الهيدر المثبت */
+  padding-top:100px; /* مكان الهيدر المثبت */
   direction: rtl;
 }
 
@@ -242,3 +242,74 @@ header{
    .cart_sidebar{padding: 3px 6px;}
 }
 
+header {
+  transition: transform 0.8s ease-in-out;
+}
+
+body {
+  padding-top: 80px; /* الديسكتوب */
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 145px; /* أقل في الموبايل */
+  }
+}
+@media (max-width: 768px) {
+  header {
+    padding: 5px 7px;
+  }
+
+  .top_header {
+    flex-wrap: wrap; /* عشان العناصر تنزل تحت بعض لو المساحة مش كفاية */
+    gap: 8px;
+  }
+
+  .search_box {
+    flex: 0 0 100%; /* تخلي البحث ياخد العرض كله */
+    min-width: unset;
+    max-width: unset;
+  }
+
+  .right-section {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    width: 130px; /* اللوجو أصغر شوية */
+  }
+}
+/* Scroll to Top Button */
+.scroll_top{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  background:#ff1616;   /* اللون الأساسي */
+  color:#fff;
+  border:0;
+  border-radius:50%;
+  width:45px;
+  height:45px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  z-index:1500;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .3s ease, transform .3s ease;
+}
+
+.scroll_top.show{
+  opacity:1;
+  visibility:visible;
+  transform:scale(1.05);
+}
+
+.scroll_top:hover{
+  background:#d90f0f;
+  transform:scale(1.15);
+}
